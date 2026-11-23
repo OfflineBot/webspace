@@ -1,0 +1,18 @@
+[
+    (
+        id: "astro",
+        name: "Astro",
+        location: "objects/astronout.glb",
+        density: 80.,
+        thrust: (
+            main: 0.,
+            angular: 2.,
+            linear: 2.,
+        ),
+        resource_container: 5,
+        max_fuel: 1000.,
+        thrusters: [
+            (thrust: 25., flow: 0.02, gimbal: 0., nozzle: ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]),
+        ],
+    )
+]

@@ -1,0 +1,369 @@
+// real solar system, one unit is one metre, one second is one second.
+// radii, mu and orbits are the published values, terrain amplitudes are the
+// real relief of each body. ids are prefixed so this set can sit next to the
+// authored one without clashing
+[
+    (
+        id: "real_sun",
+        name: "Sun",
+        emissive: true,
+        mu: 1.32712440018e20,
+        chunk: (cells: 16, max_depth: 7, detail: 0.3),
+        shape: (
+            radius: 6.957e8,
+            amplitude: 2.0e6,
+            frequency: 4.,
+            octaves: 4,
+            lacunarity: 2.,
+            gain: 0.5,
+            soi: 1.0e14,
+        ),
+        color: [
+            (below: 0.3, rgb: [255, 190, 60]),
+            (below: 1.0, rgb: [255, 240, 180]),
+        ]
+    ),
+    (
+        id: "real_mercury",
+        name: "Mercury",
+        mu: 2.2032e13,
+        chunk: (cells: 16, max_depth: 16, detail: 0.3),
+        shape: (
+            radius: 2.4397e6,
+            amplitude: 3.0e3,
+            frequency: 6.,
+            octaves: 6,
+            lacunarity: 2.,
+            gain: 0.5,
+            soi: 1.12e8,
+        ),
+        color: [
+            (below: 0.2, rgb: [90, 85, 80]),
+            (below: 0.7, rgb: [130, 124, 116]),
+            (below: 1.0, rgb: [170, 165, 158]),
+        ]
+    ),
+    (
+        id: "real_venus",
+        name: "Venus",
+        mu: 3.24859e14,
+        chunk: (cells: 16, max_depth: 17, detail: 0.3),
+        shape: (
+            radius: 6.0518e6,
+            amplitude: 5.0e3,
+            frequency: 5.,
+            octaves: 6,
+            lacunarity: 2.,
+            gain: 0.5,
+            soi: 6.16e8,
+        ),
+        atmosphere: Some((
+            radius: 6.0518e6,
+            height: 2.5e5,
+            scattering: [10.2, 9.1, 4.4],
+            albedo: 0.65,
+        )),
+        color: [
+            (below: 0.3, rgb: [180, 140, 80]),
+            (below: 0.8, rgb: [205, 170, 110]),
+            (below: 1.0, rgb: [230, 205, 150]),
+        ]
+    ),
+    (
+        id: "real_earth",
+        name: "Earth",
+        mu: 3.986004418e14,
+        chunk: (cells: 16, max_depth: 16, detail: 0.3),
+        shape: (
+            radius: 6.371e6,
+            amplitude: 5.0e3,
+            frequency: 6.,
+            octaves: 6,
+            lacunarity: 2.,
+            gain: 0.5,
+            soi: 9.245e8,
+        ),
+        atmosphere: Some((
+            radius: 6.371e6,
+            height: 1.0e5,
+            scattering: [5.802, 13.558, 33.1],
+            albedo: 0.3,
+        )),
+        color: [
+            (below: 0.0, rgb: [8, 30, 110]),
+            (below: 0.1, rgb: [20, 80, 170]),
+            (below: 0.45, rgb: [40, 130, 50]),
+            (below: 0.75, rgb: [110, 105, 95]),
+            (below: 1.0, rgb: [245, 245, 250]),
+        ]
+    ),
+    (
+        id: "real_moon",
+        name: "Moon",
+        mu: 4.9048695e12,
+        chunk: (cells: 16, max_depth: 16, detail: 0.3),
+        shape: (
+            radius: 1.7374e6,
+            amplitude: 4.0e3,
+            frequency: 7.,
+            octaves: 6,
+            lacunarity: 2.,
+            gain: 0.5,
+            soi: 6.61e7,
+        ),
+        color: [
+            (below: 0.2, rgb: [60, 58, 55]),
+            (below: 0.7, rgb: [120, 118, 112]),
+            (below: 1.0, rgb: [180, 178, 172]),
+        ]
+    ),
+    (
+        id: "real_mars",
+        name: "Mars",
+        mu: 4.282837e13,
+        chunk: (cells: 16, max_depth: 17, detail: 0.3),
+        shape: (
+            radius: 3.3895e6,
+            amplitude: 1.0e4,
+            frequency: 6.,
+            octaves: 6,
+            lacunarity: 2.,
+            gain: 0.5,
+            soi: 5.77e8,
+        ),
+        atmosphere: Some((
+            radius: 3.3895e6,
+            height: 8.0e4,
+            scattering: [19.9, 13.6, 5.8],
+            albedo: 0.25,
+        )),
+        color: [
+            (below: 0.2, rgb: [120, 60, 35]),
+            (below: 0.7, rgb: [165, 95, 55]),
+            (below: 1.0, rgb: [205, 150, 110]),
+        ]
+    ),
+    (
+        id: "real_jupiter",
+        name: "Jupiter",
+        mu: 1.26686534e17,
+        chunk: (cells: 16, max_depth: 11, detail: 0.3),
+        shape: (
+            radius: 6.9911e7,
+            amplitude: 3.0e4,
+            frequency: 3.,
+            octaves: 5,
+            lacunarity: 2.,
+            gain: 0.5,
+            soi: 4.82e10,
+        ),
+        atmosphere: Some((
+            radius: 6.9911e7,
+            height: 1.2e6,
+            scattering: [7.2, 9.6, 12.4],
+            albedo: 0.52,
+        )),
+        color: [
+            (below: 0.3, rgb: [170, 130, 95]),
+            (below: 0.7, rgb: [205, 175, 140]),
+            (below: 1.0, rgb: [235, 215, 190]),
+        ]
+    ),
+    (
+        id: "real_io",
+        name: "Io",
+        mu: 5.959916e12,
+        chunk: (cells: 16, max_depth: 16, detail: 0.3),
+        shape: (
+            radius: 1.8216e6,
+            amplitude: 6.0e3,
+            frequency: 7.,
+            octaves: 6,
+            lacunarity: 2.,
+            gain: 0.5,
+            soi: 7.84e6,
+        ),
+        color: [
+            (below: 0.3, rgb: [180, 150, 60]),
+            (below: 0.8, rgb: [215, 190, 100]),
+            (below: 1.0, rgb: [240, 225, 160]),
+        ]
+    ),
+    (
+        id: "real_europa",
+        name: "Europa",
+        mu: 3.202739e12,
+        chunk: (cells: 16, max_depth: 16, detail: 0.3),
+        shape: (
+            radius: 1.5608e6,
+            amplitude: 1.0e3,
+            frequency: 8.,
+            octaves: 5,
+            lacunarity: 2.,
+            gain: 0.5,
+            soi: 9.73e6,
+        ),
+        color: [
+            (below: 0.4, rgb: [190, 180, 170]),
+            (below: 1.0, rgb: [235, 230, 225]),
+        ]
+    ),
+    (
+        id: "real_ganymede",
+        name: "Ganymede",
+        mu: 9.887834e12,
+        chunk: (cells: 16, max_depth: 16, detail: 0.3),
+        shape: (
+            radius: 2.6341e6,
+            amplitude: 3.0e3,
+            frequency: 7.,
+            octaves: 6,
+            lacunarity: 2.,
+            gain: 0.5,
+            soi: 2.43e7,
+        ),
+        color: [
+            (below: 0.4, rgb: [110, 100, 95]),
+            (below: 1.0, rgb: [175, 168, 160]),
+        ]
+    ),
+    (
+        id: "real_callisto",
+        name: "Callisto",
+        mu: 7.179289e12,
+        chunk: (cells: 16, max_depth: 16, detail: 0.3),
+        shape: (
+            radius: 2.4103e6,
+            amplitude: 3.0e3,
+            frequency: 7.,
+            octaves: 6,
+            lacunarity: 2.,
+            gain: 0.5,
+            soi: 3.77e7,
+        ),
+        color: [
+            (below: 0.4, rgb: [75, 70, 68]),
+            (below: 1.0, rgb: [130, 125, 120]),
+        ]
+    ),
+    (
+        id: "real_saturn",
+        name: "Saturn",
+        mu: 3.7931187e16,
+        chunk: (cells: 16, max_depth: 11, detail: 0.3),
+        shape: (
+            radius: 5.8232e7,
+            amplitude: 2.5e4,
+            frequency: 3.,
+            octaves: 5,
+            lacunarity: 2.,
+            gain: 0.5,
+            soi: 5.48e10,
+        ),
+        atmosphere: Some((
+            radius: 5.8232e7,
+            height: 1.0e6,
+            scattering: [8.4, 9.9, 11.2],
+            albedo: 0.47,
+        )),
+        color: [
+            (below: 0.3, rgb: [195, 170, 120]),
+            (below: 0.8, rgb: [220, 200, 155]),
+            (below: 1.0, rgb: [240, 228, 195]),
+        ]
+    ),
+    (
+        id: "real_titan",
+        name: "Titan",
+        mu: 8.978138e12,
+        chunk: (cells: 16, max_depth: 16, detail: 0.3),
+        shape: (
+            radius: 2.5747e6,
+            amplitude: 1.0e3,
+            frequency: 6.,
+            octaves: 5,
+            lacunarity: 2.,
+            gain: 0.5,
+            soi: 4.33e7,
+        ),
+        atmosphere: Some((
+            radius: 2.5747e6,
+            height: 6.0e5,
+            scattering: [16.0, 11.0, 4.0],
+            albedo: 0.22,
+        )),
+        color: [
+            (below: 0.4, rgb: [120, 85, 40]),
+            (below: 1.0, rgb: [180, 140, 80]),
+        ]
+    ),
+    (
+        id: "real_uranus",
+        name: "Uranus",
+        mu: 5.793939e15,
+        chunk: (cells: 16, max_depth: 11, detail: 0.3),
+        shape: (
+            radius: 2.5362e7,
+            amplitude: 1.5e4,
+            frequency: 3.,
+            octaves: 4,
+            lacunarity: 2.,
+            gain: 0.5,
+            soi: 5.18e10,
+        ),
+        atmosphere: Some((
+            radius: 2.5362e7,
+            height: 7.0e5,
+            scattering: [12.0, 22.0, 30.0],
+            albedo: 0.51,
+        )),
+        color: [
+            (below: 0.5, rgb: [140, 200, 205]),
+            (below: 1.0, rgb: [185, 225, 228]),
+        ]
+    ),
+    (
+        id: "real_neptune",
+        name: "Neptune",
+        mu: 6.836529e15,
+        chunk: (cells: 16, max_depth: 11, detail: 0.3),
+        shape: (
+            radius: 2.4622e7,
+            amplitude: 1.5e4,
+            frequency: 3.,
+            octaves: 4,
+            lacunarity: 2.,
+            gain: 0.5,
+            soi: 8.66e10,
+        ),
+        atmosphere: Some((
+            radius: 2.4622e7,
+            height: 7.0e5,
+            scattering: [10.0, 20.0, 40.0],
+            albedo: 0.41,
+        )),
+        color: [
+            (below: 0.5, rgb: [45, 75, 180]),
+            (below: 1.0, rgb: [95, 130, 215]),
+        ]
+    ),
+    (
+        id: "real_triton",
+        name: "Triton",
+        mu: 1.4278e12,
+        chunk: (cells: 16, max_depth: 16, detail: 0.3),
+        shape: (
+            radius: 1.3534e6,
+            amplitude: 1.0e3,
+            frequency: 7.,
+            octaves: 5,
+            lacunarity: 2.,
+            gain: 0.5,
+            soi: 1.2e7,
+        ),
+        color: [
+            (below: 0.4, rgb: [190, 175, 165]),
+            (below: 1.0, rgb: [235, 228, 220]),
+        ]
+    ),
+]

@@ -1,0 +1,2 @@
+# nginx serves this locally via gzip_static; github pages compresses on its own
+game_bg.wasm.gz

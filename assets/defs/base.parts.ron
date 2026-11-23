@@ -1,0 +1,89 @@
+
+[
+    (
+        id: "pod.mk1",
+        name: "Command Pod",
+        location: "objects/pod_mk1.glb",
+        density: 180.,
+        crew: 1,
+    ),
+    (
+        id: "tank.small",
+        name: "Small Tank",
+        location: "objects/tank_small.glb",
+        density: 90.,
+        fuel: 400.,
+    ),
+    (
+        id: "engine.small",
+        name: "Small Engine",
+        location: "objects/engine_small.glb",
+        density: 400.,
+        thrusters: [
+            (thrust: 60_000., flow: 24., gimbal: 0.08, nozzle: ["01"]),
+        ],
+    ),
+    (
+        id: "rcs.block",
+        name: "RCS",
+        location: "objects/rcs_block.glb",
+        density: 200.,
+        thrusters: [
+            (thrust: 400., flow: 0.1, gimbal: 0., nozzle: ["01", "02", "03", "04", "05"]),
+        ],
+    ),
+    (
+        id: "gear.small",
+        name: "Small Gears",
+        location: "objects/gear_small.glb",
+        density: 150.,
+        gear: (travel: 0.6, deploy_time: 1.2, friction: 1.4),
+    ),
+    (
+        id: "tank.big",
+        name: "Large Tank",
+        location: "objects/tank_big.glb",
+        density: 90.,
+        fuel: 1000.,
+    ),
+    (
+        id: "tank.top",
+        name: "Nose Tank",
+        location: "objects/top_tank.glb",
+        density: 90.,
+        fuel: 400.,
+    ),
+    (
+        id: "coppler.stack",
+        name: "Stack Decoupler",
+        location: "objects/coppler.glb",
+        density: 120.,
+        coupler: (separation: 2500., radial: false),
+    ),
+    (
+        id: "coppler.side",
+        name: "Side Decoupler",
+        location: "objects/side_coppler.glb",
+        density: 100.,
+        coupler: (separation: 1500., radial: true),
+    ),
+    (
+        id: "dock.port",
+        name: "Docking Port",
+        location: "objects/docking.glb",
+        density: 150.,
+    ),
+    (
+        id: "heat.shield",
+        name: "Heat Shield",
+        location: "objects/heat.glb",
+        density: 250.,
+    ),
+    (
+        id: "coupler.radial",
+        name: "Radial Coupler",
+        location: "objects/coupler_small.glb",
+        density: 120.,
+        coupler: (separation: 2500., radial: true),
+    ),
+]

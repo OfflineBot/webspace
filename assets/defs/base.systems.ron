@@ -1,0 +1,113 @@
+[
+    (
+        id: "first_system",
+        system: (
+            planet: "sun",
+            children: [
+                (
+                    planet: "volcanic",
+                    orbit: (
+                        semi_major_axis: 35000.,
+                        eccentricity: 0.19,
+                        inclination: 0.12,
+                        longitude_of_ascending_node: 1.2,
+                        argument_of_periapsis: 0.6,
+                        mean_anomaly_at_epoch: 5.5048,
+                    ),
+                ),
+                (
+                    planet: "barren",
+                    orbit: (
+                        semi_major_axis: 80000.,
+                        eccentricity: 0.11,
+                        inclination: 0.06,
+                        longitude_of_ascending_node: 2.35,
+                        argument_of_periapsis: 4.1,
+                        mean_anomaly_at_epoch: 2.7,
+                    ),
+                ),
+                (
+                    planet: "earthlike",
+                    orbit: (
+                        semi_major_axis: 160000.,
+                        eccentricity: 0.03,
+                        inclination: 0.,
+                        longitude_of_ascending_node: 3.14159,
+                        argument_of_periapsis: -1.57080,
+                        mean_anomaly_at_epoch: 0.,
+                    ),
+                    children: [
+                        (
+                            planet: "moon",
+                            orbit: (
+                                semi_major_axis: 20000.,
+                                eccentricity: 0.05,
+                                inclination: 0.09,
+                                longitude_of_ascending_node: 6.2,
+                                argument_of_periapsis: 1.9,
+                                mean_anomaly_at_epoch: 5.4629,
+                            ),
+                        ),
+                    ],
+                ),
+                (
+                    planet: "desert",
+                    orbit: (
+                        semi_major_axis: 280000.,
+                        eccentricity: 0.1,
+                        inclination: 0.035,
+                        longitude_of_ascending_node: 4.4,
+                        argument_of_periapsis: 2.2,
+                        mean_anomaly_at_epoch: 1.0385,
+                    ),
+                ),
+                (
+                    planet: "ocean",
+                    orbit: (
+                        semi_major_axis: 520000.,
+                        eccentricity: 0.05,
+                        inclination: 0.025,
+                        longitude_of_ascending_node: 1.1,
+                        argument_of_periapsis: 1.0,
+                        mean_anomaly_at_epoch: 5.9865,
+                    ),
+                    children: [
+                        (
+                            planet: "ashen",
+                            orbit: (
+                                semi_major_axis: 42000.,
+                                eccentricity: 0.01,
+                                inclination: 0.004,
+                                longitude_of_ascending_node: 0.4,
+                                argument_of_periapsis: 2.8,
+                                mean_anomaly_at_epoch: 3.1,
+                            ),
+                        ),
+                        (
+                            planet: "glacier",
+                            orbit: (
+                                semi_major_axis: 65000.,
+                                eccentricity: 0.02,
+                                inclination: 0.012,
+                                longitude_of_ascending_node: 5.1,
+                                argument_of_periapsis: 0.9,
+                                mean_anomaly_at_epoch: 1.4,
+                            ),
+                        ),
+                    ],
+                ),
+                (
+                    planet: "frozen",
+                    orbit: (
+                        semi_major_axis: 900000.,
+                        eccentricity: 0.22,
+                        inclination: 0.3,
+                        longitude_of_ascending_node: 2.9,
+                        argument_of_periapsis: 5.3,
+                        mean_anomaly_at_epoch: 4.2,
+                    ),
+                ),
+            ],
+        ),
+    ),
+]

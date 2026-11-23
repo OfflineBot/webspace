@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spacestation</title>
+<style>
+  :root { --crust: #11111b; --text: #cdd6f4; --mauve: #cba6f7; --subtext0: #a6adc8; }
+  html, body { margin: 0; width: 100%; height: 100%; background: var(--crust);
+    color: var(--text); font-family: system-ui, sans-serif; overflow: hidden; }
+  #game { display: block; width: 100%; height: 100%; outline: none; }
+  #msg { position: fixed; inset: 0; display: grid; place-content: center;
+    text-align: center; pointer-events: none; }
+  #msg b { color: var(--mauve); }
+  #hint { position: fixed; left: 50%; bottom: 1.5rem; transform: translateX(-50%);
+    color: var(--subtext0); font-size: .85rem; pointer-events: none; }
+</style>
+</head>
+<body>
+<canvas id="game" tabindex="0"></canvas>
+<div id="msg"><p>loading <b>spacestation</b> …</p></div>
+<div id="hint" hidden>click to capture the mouse · esc to release</div>
+<script type="module">
+  import init from './game.js';
+  init().then(() => {
+    document.getElementById('msg').remove();
+    const hint = document.getElementById('hint');
+    hint.hidden = false;
+    document.addEventListener('pointerlockchange', () => {
+      hint.hidden = document.pointerLockElement !== null;
+    });
+  }).catch(e => {
+    document.getElementById('msg').innerHTML =
+      '<p><b>failed</b><br>' + e + '<br>needs a WebGPU browser (Chrome/Edge)</p>';
+  });
+</script>
+</body>
+</html>

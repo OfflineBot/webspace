@@ -1,0 +1,560 @@
+[
+/*
+    (
+        // the name of the planet. must be unique
+        id: "test",
+        name: "Test",
+
+        // radius of the planet
+        radius: 1000.,
+
+        /// mass of the planet
+        mu: 3.0e6,
+
+        // technical detail about the chunk
+        chunk: (
+            // how many vertices per chunk are used
+            cells: 32,
+
+            // how often the cube gets subdivided
+            max_depth: 6,
+
+            // how fast the subdivisions get calculated
+            detail: 0.2,
+        ),
+
+        // the world gen noise values
+        shape: (
+            // the Sphere of influence radius
+            soi: 1_000.,
+
+            // how high the terrain can get. 
+            // higher values equals higher mountains
+            amplitude: 10.,
+
+            // how big the texture can get (the size of the noise). 
+            // higher values equals more detail
+            frequency: 6.,
+
+            // how many iterations the noise apply. 
+            // more iterations equals finer detail
+            octaves: 5,
+
+            // the factor of how much stronger the octaves get
+            // higher values make the terrain rougher
+            lacunarity: 2.,
+
+            // the factor the amplitude scales. 
+            // later octaves get smaller hills with gain < 1.0
+            gain: 0.5,
+        ),
+
+        // color defintions of the celestial
+        color: [
+            // can be read like this:
+            // all values below <below> get the color <rgb>
+            // 
+            // <below> values range from -1.0 to 1.0
+            // colors are in rgb format from 0 to 255
+            (
+                below: -0.5, 
+                rgb: [0, 0, 255]
+            ),
+            (
+                below: 0.0, 
+                rgb: [0, 255, 0]
+            ),
+            (
+                below: 0.7, 
+                rgb: [100, 100, 100]
+            ),
+            (
+                below: 1.0, 
+                rgb: [255, 255, 255]
+            ),
+        ]
+    ),
+*/
+    (
+        id: "earthlike",
+        name: "Verdan",
+
+        mu: 8.82e7,
+
+        chunk: (
+            cells: 32,
+            max_depth: 5,
+            detail: 0.2,
+        ),
+
+        shape: (
+            radius: 3000.,
+            amplitude: 60.,
+            frequency: 6.,
+            octaves: 5,
+            lacunarity: 2.,
+            gain: 0.5,
+            soi: 35_000.,
+        ),
+
+        atmosphere: Some((
+            radius: 1_000_000.,
+            height: 60_000.,
+            scattering: [5.802, 13.558, 33.1],
+            albedo: 0.3,
+        )),
+
+        color: [
+            (
+                below: 0.0, 
+                rgb: [0, 0, 255]
+            ),
+            (
+                below: 0.1, 
+                rgb: [0, 100, 255]
+            ),
+            (
+                below: 0.4, 
+                rgb: [0, 255, 0]
+            ),
+            (
+                below: 0.7, 
+                rgb: [100, 100, 100]
+            ),
+            (
+                below: 1.0, 
+                rgb: [255, 255, 255]
+            ),
+        ]
+    ),
+
+    // small grey moon: dark lowlands, bright highlands
+    (
+        id: "moon",
+        name: "Selka",
+
+        mu: 3.24e5,
+
+        chunk: (
+            cells: 16,
+            max_depth: 5,
+            detail: 0.1,
+        ),
+
+        shape: (
+            radius: 450.,
+            amplitude: 8.,
+            frequency: 3.3,
+            octaves: 6,
+            lacunarity: 2.1,
+            gain: 0.55,
+            soi: 2_500.,
+        ),
+
+        color: [
+            (
+                below: -0.12,
+                rgb: [55, 55, 60]
+            ),
+            (
+                below: 0.08,
+                rgb: [110, 110, 115]
+            ),
+            (
+                below: 0.2,
+                rgb: [160, 160, 160]
+            ),
+            (
+                below: 1.0,
+                rgb: [205, 205, 200]
+            ),
+        ]
+    ),
+
+    // red desert world with deep canyons and high plateaus
+    (
+        id: "desert",
+        name: "Arida",
+
+        mu: 9.47e6,
+
+        chunk: (
+            cells: 32,
+            max_depth: 6,
+            detail: 0.2,
+        ),
+
+        shape: (
+            radius: 1600.,
+            amplitude: 28.,
+            frequency: 2.7,
+            octaves: 5,
+            lacunarity: 2.2,
+            gain: 0.5,
+            soi: 30_000.,
+        ),
+
+        atmosphere: Some((
+            radius: 600_000.,
+            height: 35_000.,
+            scattering: [12.0, 6.0, 3.5],
+            albedo: 0.25,
+        )),
+
+        color: [
+            (
+                below: -0.15,
+                rgb: [90, 35, 20]
+            ),
+            (
+                below: 0.0,
+                rgb: [160, 70, 35]
+            ),
+            (
+                below: 0.15,
+                rgb: [195, 110, 60]
+            ),
+            (
+                below: 0.25,
+                rgb: [220, 170, 110]
+            ),
+            (
+                below: 1.0,
+                rgb: [235, 215, 185]
+            ),
+        ]
+    ),
+
+    // ocean world: ~75% water, a few jungle islands with snowy peaks
+    (
+        id: "ocean",
+        name: "Mare",
+
+        mu: 1.215e9,
+
+        chunk: (
+            cells: 32,
+            max_depth: 6,
+            detail: 0.2,
+        ),
+
+        shape: (
+            radius: 7000.,
+            amplitude: 50.,
+            frequency: 2.4,
+            octaves: 6,
+            lacunarity: 2.,
+            gain: 0.5,
+            soi: 80_000.,
+        ),
+
+        atmosphere: Some((
+            radius: 2_000_000.,
+            height: 80_000.,
+            scattering: [7.0, 16.5, 40.0],
+            albedo: 0.08,
+        )),
+
+        color: [
+            (
+                below: 0.0,
+                rgb: [10, 40, 110]
+            ),
+            (
+                below: 0.1,
+                rgb: [30, 100, 170]
+            ),
+            (
+                below: 0.12,
+                rgb: [215, 200, 140]
+            ),
+            (
+                below: 0.2,
+                rgb: [40, 120, 50]
+            ),
+            (
+                below: 0.27,
+                rgb: [110, 100, 90]
+            ),
+            (
+                below: 1.0,
+                rgb: [240, 240, 245]
+            ),
+        ]
+    ),
+
+    // rough volcanic world: lava in the lowlands, black basalt, grey ash on top
+    (
+        id: "volcanic",
+        name: "Ignis",
+
+        mu: 3.0e6,
+
+        chunk: (
+            cells: 16,
+            max_depth: 6,
+            detail: 0.1,
+        ),
+
+        shape: (
+            radius: 900.,
+            amplitude: 22.,
+            frequency: 5.4,
+            octaves: 6,
+            lacunarity: 2.3,
+            gain: 0.6,
+            soi: 12_000.,
+        ),
+
+        atmosphere: Some((
+            radius: 350_000.,
+            height: 35_000.,
+            scattering: [11.0, 7.0, 2.5],
+            albedo: 0.12,
+        )),
+
+        color: [
+            (
+                below: -0.17,
+                rgb: [255, 20, 120]
+            ),
+            (
+                below: -0.11,
+                rgb: [150, 10, 30]
+            ),
+            (
+                below: 0.08,
+                rgb: [30, 25, 25]
+            ),
+            (
+                below: 0.18,
+                rgb: [65, 60, 58]
+            ),
+            (
+                below: 1.0,
+                rgb: [120, 115, 110]
+            ),
+        ]
+    ),
+
+    // sun: glowing yellow/white surface with orange convection cells
+    (
+        id: "sun",
+        name: "Solara",
+        mu: 4.0e10,
+        emissive: true,
+
+        chunk: (
+            cells: 16,
+            max_depth: 5,
+            detail: 0.2,
+        ),
+
+        shape: (
+            radius: 8000.,
+            amplitude: 6.,
+            frequency: 7.3,
+            octaves: 4,
+            lacunarity: 2.1,
+            gain: 0.45,
+            soi: 1_500_000.,
+        ),
+
+        color: [
+            (
+                below: -0.22,
+                rgb: [240, 140, 30]
+            ),
+            (
+                below: -0.08,
+                rgb: [255, 185, 50]
+            ),
+            (
+                below: 0.08,
+                rgb: [255, 215, 90]
+            ),
+            (
+                below: 0.2,
+                rgb: [255, 240, 170]
+            ),
+            (
+                below: 1.0,
+                rgb: [255, 252, 235]
+            ),
+        ]
+    ),
+    // barren: airless cratered rock, dark lowlands to pale dusty highlands
+    (
+        id: "barren",
+        name: "Cinera",
+        mu: 3.63e6,
+
+        chunk: (
+            cells: 32,
+            max_depth: 6,
+            detail: 0.15,
+        ),
+
+        shape: (
+            radius: 1100.,
+            amplitude: 27.,
+            frequency: 4.5,
+            octaves: 6,
+            lacunarity: 2.2,
+            gain: 0.5,
+            soi: 14_000.,
+        ),
+
+        color: [
+            (
+                below: -0.15,
+                rgb: [45, 40, 38]
+            ),
+            (
+                below: 0.05,
+                rgb: [95, 85, 78]
+            ),
+            (
+                below: 0.35,
+                rgb: [135, 120, 108]
+            ),
+            (
+                below: 1.0,
+                rgb: [170, 158, 145]
+            ),
+        ]
+    ),
+
+    // frozen: outer ice world, blue basins under bright snowfields
+    (
+        id: "frozen",
+        name: "Borea",
+        mu: 1.86e6,
+
+        chunk: (
+            cells: 32,
+            max_depth: 6,
+            detail: 0.15,
+        ),
+
+        shape: (
+            radius: 1300.,
+            amplitude: 26.,
+            frequency: 3.,
+            octaves: 5,
+            lacunarity: 2.1,
+            gain: 0.5,
+            soi: 16_000.,
+        ),
+
+        atmosphere: Some((
+            radius: 500_000.,
+            height: 40_000.,
+            scattering: [2.5, 9.0, 16.0],
+            albedo: 0.6,
+        )),
+
+        color: [
+            (
+                below: -0.1,
+                rgb: [120, 150, 190]
+            ),
+            (
+                below: 0.1,
+                rgb: [180, 205, 230]
+            ),
+            (
+                below: 0.45,
+                rgb: [225, 240, 250]
+            ),
+            (
+                below: 1.0,
+                rgb: [255, 255, 255]
+            ),
+        ]
+    ),
+
+    // ashen: volcanic moon, sulfur plains over dark basalt
+    (
+        id: "ashen",
+        name: "Sulphos",
+        mu: 4.5e5,
+
+        chunk: (
+            cells: 16,
+            max_depth: 5,
+            detail: 0.1,
+        ),
+
+        shape: (
+            radius: 500.,
+            amplitude: 13.5,
+            frequency: 5.,
+            octaves: 6,
+            lacunarity: 2.3,
+            gain: 0.55,
+            soi: 3_000.,
+        ),
+
+        color: [
+            (
+                below: -0.1,
+                rgb: [60, 45, 25]
+            ),
+            (
+                below: 0.1,
+                rgb: [180, 150, 60]
+            ),
+            (
+                below: 0.4,
+                rgb: [225, 190, 80]
+            ),
+            (
+                below: 1.0,
+                rgb: [245, 225, 150]
+            ),
+        ]
+    ),
+
+    // glacier: icy moon, smooth cracked shell with rust-tinted ridges
+    (
+        id: "glacier",
+        name: "Nivis",
+        mu: 6.37e5,
+
+        chunk: (
+            cells: 16,
+            max_depth: 5,
+            detail: 0.1,
+        ),
+
+        shape: (
+            radius: 700.,
+            amplitude: 7.,
+            frequency: 2.8,
+            octaves: 5,
+            lacunarity: 2.,
+            gain: 0.5,
+            soi: 4_500.,
+        ),
+
+        color: [
+            (
+                below: -0.08,
+                rgb: [200, 190, 180]
+            ),
+            (
+                below: 0.12,
+                rgb: [230, 225, 220]
+            ),
+            (
+                below: 0.5,
+                rgb: [245, 243, 240]
+            ),
+            (
+                below: 1.0,
+                rgb: [255, 255, 255]
+            ),
+        ]
+    ),
+]

@@ -1,0 +1,8 @@
+
+[
+    (
+        id: "landing.structure",
+        name: "Landing Structure",
+        location: "objects/landing_structure.glb",
+    ),
+]
