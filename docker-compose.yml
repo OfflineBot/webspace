@@ -5,3 +5,12 @@ services:
     ports:
       - "8099:80"
     restart: unless-stopped
+
+  # reaches web over the compose network, so the tunnel's service url is web:80
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: spacestation-tunnel
+    command: tunnel --no-autoupdate run --token ${TUNNEL_TOKEN:?set TUNNEL_TOKEN in .env}
+    depends_on:
+      - web
+    restart: unless-stopped
