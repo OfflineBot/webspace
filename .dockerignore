@@ -1,0 +1,6 @@
+.git
+.gitignore
+Dockerfile
+.dockerignore
+docker-compose.yml
+game_bg.wasm.gz
